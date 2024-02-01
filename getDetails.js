@@ -4,9 +4,9 @@ const axios = require('axios');
 const app = express();
 const port = 3000; // Change this to the desired port number
 
-const tenantId = '4779c6af-0689-4195-a99f-0e9c8b2c0652'; // Replace with your Azure AD tenant ID
-const clientId = 'cdbf86e5-071c-497b-9161-2d892b37a1de'; // Replace with your Application ID (Client ID)
-const clientSecret = 'Vs18Q~rp~hxy6NxZgLElvfr3ALSmVrY5caW5-cJR'; // Replace with your Application's Client Secret
+const tenantId = ''; // Replace with your Azure AD tenant ID
+const clientId = ''; // Replace with your Application ID (Client ID)
+const clientSecret = ''; // Replace with your Application's Client Secret
 
 // Middleware to parse incoming JSON data
 app.use(express.json());
@@ -38,8 +38,8 @@ async function isAppRoleAssignedToEmployee(username) {
     const appRoleAssignments = appRoleAssignmentsResponse.data.value;
     const isAssignedToEmployee = appRoleAssignments.some(roleAssignment => {
       return (
-        (roleAssignment.appRoleId === '8e06e15d-ef0b-4c4d-8307-a9b2aa694395' && roleAssignment.principalType === 'Group' && roleAssignment.principalDisplayName === 'Employee') ||
-        (roleAssignment.appRoleId === '48978d69-12e1-4a8c-866e-99480c3d0a00' && roleAssignment.principalType === 'Group' && roleAssignment.principalDisplayName === 'Admin')
+        (roleAssignment.appRoleId === 'app registration group id' && roleAssignment.principalType === 'Group' && roleAssignment.principalDisplayName === 'Employee') ||
+        (roleAssignment.appRoleId === 'app registration group id' && roleAssignment.principalType === 'Group' && roleAssignment.principalDisplayName === 'Admin')
       );
     });
 
